@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Victoria Da Luz — Front End & UX/UI</title>
+  <style>
+    :root { --bg:#0f0f14; --fg:#ececf1; --muted:#9a9aa8; --accent:#b388ff; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, sans-serif; background:var(--bg); color:var(--fg); line-height:1.6; }
+    main { max-width: 960px; margin: 0 auto; padding: 4rem 1.5rem; }
+    h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin: 0 0 .5rem; }
+    p.lead { color: var(--muted); max-width: 55ch; }
+    a { color: var(--accent); }
+    .grid { display:grid; gap:1.5rem; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin-top:2rem; }
+    .card { background:#181822; border-radius:12px; overflow:hidden; text-decoration:none; color:inherit; transition: transform .2s; }
+    .card:hover { transform: translateY(-4px); }
+    .card img { width:100%; aspect-ratio:16/10; object-fit:cover; display:block; background:#242433; }
+    .card div { padding:1rem; }
+    .card h3 { margin:0 0 .25rem; }
+    .card p { margin:0; color:var(--muted); font-size:.9rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Hi! I'm Victoria👋</h1>
+    <p class="lead">Front end developer and UX/UI designer with over 4 years of experience, working with Figma.</p>
+
+    <h2>Projects</h2>
+    <section class="grid">
+      <a class="card" href="https://tivolifest.com.ar" target="_blank" rel="noopener">
+        <img src="img/tivoli.jpg" alt="Tivoli Fest">
+        <div><h3>Tivoli Fest</h3><p>Website for the event hall.</p></div>
+      </a>
+      https://tivolifest.com.ar/
+    </section>
+
+    <h2>Contacto</h2>
+    <p><a href="https://www.linkedin.com/in/victoriadaluz/">LinkedIn</a></p>
+  </main>
+</body>
+</html>

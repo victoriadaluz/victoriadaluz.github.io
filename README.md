@@ -1,6 +1,6 @@
-### Hi there 👋
+# Hi there 👋
 
-##### BIO
+## BIO
 
 - 🏢+4 years of experience in front end development and UX/UI design with Figma
 - 📫 Reach me: [linkedin.com/in/victoriadaluz/](https://www.linkedin.com/in/victoriadaluz/)
