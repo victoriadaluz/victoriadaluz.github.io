@@ -1,42 +1,189 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Victoria Da Luz — Front End & UX/UI</title>
-  <style>
-    :root { --bg:#0f0f14; --fg:#ececf1; --muted:#9a9aa8; --accent:#b388ff; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: system-ui, sans-serif; background:var(--bg); color:var(--fg); line-height:1.6; }
-    main { max-width: 960px; margin: 0 auto; padding: 4rem 1.5rem; }
-    h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin: 0 0 .5rem; }
-    p.lead { color: var(--muted); max-width: 55ch; }
-    a { color: var(--accent); }
-    .grid { display:grid; gap:1.5rem; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin-top:2rem; }
-    .card { background:#181822; border-radius:12px; overflow:hidden; text-decoration:none; color:inherit; transition: transform .2s; }
-    .card:hover { transform: translateY(-4px); }
-    .card img { width:100%; aspect-ratio:16/10; object-fit:cover; display:block; background:#242433; }
-    .card div { padding:1rem; }
-    .card h3 { margin:0 0 .25rem; }
-    .card p { margin:0; color:var(--muted); font-size:.9rem; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Victoria Da Luz — Front End &amp; UX/UI</title>
+<meta name="description" content="Front end developer and UX/UI designer based in Argentina. Portfolio, projects and CV.">
+<meta property="og:title" content="Victoria Da Luz — Front End & UX/UI">
+<meta property="og:description" content="Front end developer and UX/UI designer. Portfolio, projects and CV.">
+<meta property="og:image" content="https://victoriadaluz.github.io/victoriadaluz/img/cover.webp">
+<meta name="theme-color" content="#17110d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐈‍⬛%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#17110d; --panel:#221913; --line:#3a2b20; --black:#0d0907;
+  --fg:#eadfce; --muted:#b09c85; --accent:#7fbfb2; --gold:#c99a5b;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:ui-monospace,"JetBrains Mono","Fira Code",Menlo,Consolas,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:1rem}
+body{margin:0;background:var(--bg);color:var(--fg);font:1.0625rem/1.65 var(--sans)}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--accent);text-underline-offset:.2em}
+a:hover{color:var(--fg)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:1rem;top:-4rem;background:var(--accent);color:var(--black);padding:.5rem 1rem;z-index:10}
+.skip:focus{top:1rem}
+.wrap{max-width:60rem;margin-inline:auto;padding-inline:1.25rem}
+
+header .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1.5rem;padding-block:1.25rem}
+nav ul{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem;margin:0;padding:0;list-style:none}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--fg);text-decoration:underline}
+#lang{font:inherit;font-size:.9rem;color:var(--fg);background:transparent;border:1px solid var(--line);border-radius:6px;padding:.3rem .8rem;cursor:pointer}
+#lang:hover{border-color:var(--accent)}
+
+.hero{display:grid;gap:2.5rem;padding-block:3rem 4rem;align-items:center}
+@media(min-width:52rem){.hero{grid-template-columns:1fr 1.05fr}}
+.me{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem}
+.me img{width:96px;height:96px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+h1{font:400 clamp(2.2rem,6vw,3.6rem)/1.1 var(--serif);margin:0 0 1rem;letter-spacing:-.01em}
+.lead{color:var(--muted);max-width:44ch;margin:0}
+
+.term{background:var(--black);border:1px solid var(--line);border-radius:10px;overflow:hidden;font:.9rem/1.7 var(--mono)}
+.term-bar{background:var(--panel);padding:.45rem 1rem;color:var(--muted);font-size:.8rem;border-bottom:1px solid var(--line)}
+.term-body{padding:1rem 1.25rem}
+.term p{margin:0 0 .5rem;color:var(--gold)}
+.term p b{color:var(--fg);font-weight:400}
+.term dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:0 1rem}
+.term dt{color:var(--accent)}
+.term dd{margin:0;overflow-wrap:anywhere}
+.cur{display:inline-block;width:.6em;height:1.1em;background:var(--fg);vertical-align:text-bottom;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.cur{animation:none}html{scroll-behavior:auto}}
+
+section{padding-block:2.5rem;border-top:1px solid var(--line)}
+h2{font:400 1.9rem/1.2 var(--serif);margin:0 0 1.25rem}
+h3{font:600 1.15rem/1.3 var(--sans);margin:0 0 .25rem}
+.grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,17rem),1fr))}
+.proj{display:block;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;color:inherit;text-decoration:none}
+.proj:hover{border-color:var(--accent)}
+.proj img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.proj div{padding:1rem 1.1rem 1.2rem}
+.proj p{margin:0;color:var(--muted);font-size:.95rem}
+.shots figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:.5rem}
+.shots img{width:100%;aspect-ratio:4/3;object-fit:contain}
+.about p{max-width:62ch;margin:0 0 1rem}
+.btn{display:inline-block;background:var(--accent);color:var(--black);font-weight:600;text-decoration:none;padding:.65rem 1.25rem;border-radius:6px}
+.btn:hover{background:var(--fg);color:var(--black)}
+footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);font-size:.9rem}
+</style>
 </head>
 <body>
-  <main>
-    <h1>Hi! I'm Victoria👋</h1>
-    <p class="lead">Front end developer and UX/UI designer with over 4 years of experience, working with Figma.</p>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
-    <h2>Projects</h2>
-    <section class="grid">
-      <a class="card" href="https://tivolifest.com.ar" target="_blank" rel="noopener">
-        <img src="img/tivoli.jpg" alt="Tivoli Fest">
-        <div><h3>Tivoli Fest</h3><p>Website for the event hall.</p></div>
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+        <li><a href="#design" data-i18n="nav_design">Design</a></li>
+        <li><a href="#about" data-i18n="nav_about">About me</a></li>
+        <li><a href="#cv" data-i18n="nav_cv">CV</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="lang" type="button" lang="es">ES</button>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="hero">
+    <div>
+      <div class="me">
+        <img src="img/profilepic.webp" width="96" height="96" alt="Victoria Da Luz" data-i18n="alt_me" data-attr="alt">
+      </div>
+      <h1 data-i18n="h1">Hi! I'm Victoria 👋</h1>
+      <p class="lead" data-i18n="lead">Front end developer and UX/UI designer with over 4 years of experience, working with Figma, React and Angular. Learning n8n.</p>
+    </div>
+    <div class="term" aria-label="About me, terminal style" data-i18n="term_label" data-attr="aria-label">
+      <div class="term-bar">vicky@arch: ~</div>
+      <div class="term-body">
+        <p>$ <b>fastfetch</b></p>
+        <dl>
+          <dt>OS</dt><dd>Arch Linux</dd>
+          <dt>Role</dt><dd data-i18n="t_role">Front end + UX/UI</dd>
+          <dt>From</dt><dd>Argentina</dd>
+          <dt>Music</dt><dd>Steely Dan and mathcore child</dd>
+          <dt>Games</dt><dd>Disco Elysium, Persona</dd>
+          <dt>Cats</dt><dd data-i18n="t_cats">3, all different colors. Ask your questions</dd>
+          <dt>Colors</dt><dd data-i18n="t_colors">brown, black</dd>
+        </dl>
+        <p style="margin:.75rem 0 0">$ <span class="cur" aria-hidden="true"></span></p>
+      </div>
+    </div>
+  </div>
+
+  <section id="projects">
+    <h2 data-i18n="h_projects">Projects</h2>
+    <div class="grid">
+      <a class="proj" href="https://tivolifest.com.ar" target="_blank" rel="noopener">
+        <img src="img/cover.webp" width="640" height="400" alt="Tivoli Fest website" data-i18n="alt_tivoli" data-attr="alt" loading="lazy" decoding="async">
+        <div><h3>Tivoli Fest</h3><p data-i18n="p_tivoli">Website for the event hall.</p></div>
       </a>
-      https://tivolifest.com.ar/
-    </section>
+      <!-- Para sumar otro proyecto, copiá el bloque <a class="proj"> completo -->
+    </div>
+  </section>
 
-    <h2>Contacto</h2>
-    <p><a href="https://www.linkedin.com/in/victoriadaluz/">LinkedIn</a></p>
-  </main>
+  <section id="design" class="shots">
+    <h2 data-i18n="h_design">Design work</h2>
+    <div class="grid">
+      <figure><img src="img/Colores.webp" width="480" height="360" alt="Color palette" data-i18n="alt_colors" data-attr="alt" loading="lazy" decoding="async"></figure>
+      <figure><img src="img/Iconos.webp" width="480" height="360" alt="Icon set" data-i18n="alt_icons" data-attr="alt" loading="lazy" decoding="async"></figure>
+      <figure><img src="img/tipography.webp" width="480" height="360" alt="Typography" data-i18n="alt_type" data-attr="alt" loading="lazy" decoding="async"></figure>
+      <figure><img src="img/Mobile.webp" width="480" height="360" alt="Mobile design" data-i18n="alt_mobile" data-attr="alt" loading="lazy" decoding="async"></figure>
+      <figure><img src="img/Mensaje.webp" width="480" height="360" alt="Message screen design" data-i18n="alt_msg" data-attr="alt" loading="lazy" decoding="async"></figure>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2 data-i18n="h_about">About me</h2>
+    <p data-i18n="about1">I build interfaces and design them too, so I care about how something looks and how it behaves once it's in someone's hands. I work with Figma for designing and Angular, React or Vite for the front end.</p>
+    <p data-i18n="about2">Outside work I'm on Arch Linux, I'm very passionate about music, RPGs and cooking.</p>
+  </section>
+
+  <section id="cv">
+    <h2 data-i18n="h_cv">Résumé</h2>
+    <p data-i18n="cv_text">Available in English and Spanish, as PDF.</p>
+    <a class="btn" data-cv href="cv/Victoria_Da_Luz_CV_EN.pdf" target="_blank" rel="noopener" data-i18n="cv_btn">Open my CV</a>
+  </section>
+
+  <section id="contact">
+    <h2 data-i18n="h_contact">Contact</h2>
+    <p><a href="https://www.linkedin.com/in/victoriadaluz/" target="_blank" rel="noopener">LinkedIn</a>
+      &nbsp;&nbsp;<a href="https://github.com/victoriadaluz" target="_blank" rel="noopener">GitHub</a></p>
+  </section>
+</main>
+
+<script>
+const T={es:{
+skip:"Saltar al contenido",nav_projects:"Proyectos",nav_design:"Diseño",nav_about:"Sobre mí",nav_cv:"CV",nav_contact:"Contacto",
+alt_me:"Victoria Da Luz",h1:"¡Hola! Soy Victoria 👋",
+lead:"Desarrolladora front end y diseñadora UX/UI con más de 4 años de experiencia, trabajando con Figma, React y Angular. Apendiendo n8n.",
+term_label:"Sobre mí, en formato terminal",t_role:"Front end + UX/UI",t_cats:"3, y de diferentes colores. Preguntame lo que quieras",t_colors:"tierra, y por supuesto negro",
+h_projects:"Proyectos",alt_tivoli:"Sitio web de Tivoli Fest",p_tivoli:"Sitio web para el salón de eventos.",
+h_design:"Trabajos de diseño",alt_colors:"Paleta de colores",alt_icons:"Set de íconos",alt_type:"Tipografías",alt_mobile:"Diseño mobile",alt_msg:"Diseño de pantalla de mensajes",
+h_about:"Sobre mi",
+about1:"Construyo interfaces y también las diseño, así que me importa cómo se ve algo y cómo se comporta cuando está en manos de alguien. Trabajo con Figma y código front end.",
+about2:"Fuera del trabajo uso Arch Linux, me apasiona la música, los RPG y cocinar.",
+h_cv:"Currículum",cv_text:"Disponible en español e inglés, en PDF.",cv_btn:"Abrir mi CV",}};
+const $=s=>document.querySelectorAll(s),btn=document.getElementById('lang');
+$('[data-i18n]').forEach(e=>e.dataset.en=e.dataset.attr?e.getAttribute(e.dataset.attr):e.innerHTML);
+function setLang(l){
+  document.documentElement.lang=l;
+  $('[data-i18n]').forEach(e=>{const v=l==='es'?T.es[e.dataset.i18n]:e.dataset.en;e.dataset.attr?e.setAttribute(e.dataset.attr,v):e.innerHTML=v});
+  $('[data-cv]').forEach(a=>a.href='cv/Victoria_Da_Luz_CV_'+l.toUpperCase()+'.pdf');
+  btn.textContent=l==='es'?'EN':'ES';btn.lang=l==='es'?'en':'es';
+  btn.setAttribute('aria-label',l==='es'?'Switch to English':'Cambiar a español');
+  try{localStorage.setItem('lang',l)}catch(e){}
+}
+let saved;try{saved=localStorage.getItem('lang')}catch(e){}
+let cur=saved||((navigator.language||'').startsWith('es')?'es':'en');
+setLang(cur);
+btn.addEventListener('click',()=>{cur=cur==='es'?'en':'es';setLang(cur)});
+</script>
 </body>
 </html>
