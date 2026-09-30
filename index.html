@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Victoria Da Luz | Front-End Developer &amp; UX/UI Designer</title>
 <meta name="description" content="Victoria Da Luz is a front-end developer and UX/UI designer based in Argentina. Explore selected web and interface design projects, experience, and résumé.">
-<link rel="canonical" href="https://victoriadaluz.github.io/victoriadaluz/">
+<link rel="canonical" href="https://victoriadaluz.github.io/">
 <meta property="og:title" content="Victoria Da Luz — Front End & UX/UI">
 <meta property="og:description" content="Front-end developer and UX/UI designer based in Argentina. Explore selected web and interface design projects, experience, and résumé.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://victoriadaluz.github.io/">
 <meta property="og:site_name" content="Victoria Da Luz">
-<meta property="og:image" content="https://victoriadaluz.github.io/victoriadaluz/img/cover.webp">
+<meta property="og:image" content="https://victoriadaluz.github.io/img/cover.webp">
 <meta property="og:image:alt" content="Tivoli Fest website design by Victoria Da Luz">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Victoria Da Luz | Front-End Developer &amp; UX/UI Designer">
 <meta name="twitter:description" content="Front-end developer and UX/UI designer based in Argentina. Explore selected projects and experience.">
-<meta name="twitter:image" content="https://victoriadaluz.github.io/victoriadaluz/img/cover.webp">
+<meta name="twitter:image" content="https://victoriadaluz.github.io/img/cover.webp">
 <meta name="twitter:image:alt" content="Tivoli Fest website design by Victoria Da Luz">
 <meta name="theme-color" content="#17110d">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐈‍⬛%3C/text%3E%3C/svg%3E">
@@ -26,13 +26,13 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Victoria Da Luz",
-  "url": "https://victoriadaluz.github.io/victoriadaluz/",
+  "url": "https://victoriadaluz.github.io/",
   "jobTitle": "Front-End Developer and UX/UI Designer",
   "sameAs": [
     "https://www.linkedin.com/in/victoriadaluz/",
     "https://github.com/victoriadaluz"
   ],
-  "knowsAbout": ["Front-end development", "UX/UI design", "Figma", "React", "Angular", "Vite"]
+  "knowsAbout": ["Front-end development", "UX/UI design", "Figma", "Angular", "React", "Vite", "CSS", "HTML", "TypeScript", "JavaScript", "Python", "Express", "Node.js", "SQL", "Sequelize", "EJS", "Tailwind CSS", "Bash"]
 }
 </script>
 <style>
@@ -68,6 +68,16 @@ nav a:hover{color:var(--fg);text-decoration:underline}
 h1{font:400 clamp(2.2rem,6vw,3.6rem)/1.1 var(--serif);margin:0 0 1rem;letter-spacing:-.01em}
 .lead{color:var(--muted);max-width:44ch;margin:0}
 
+.stack-intro{margin:0;color:var(--muted)}
+.typing-word{color:var(--accent);font-family:var(--mono);font-weight:500}
+.typing-cursor{display:inline-block;width:.55em;height:1.1em;margin-left:.15em;background:var(--accent);vertical-align:text-bottom;animation:blink 1.1s steps(1) infinite}
+.typing-toggle{min-height:24px;padding:.15rem .5rem;border:1px solid var(--line);border-radius:4px;background:transparent;color:var(--fg);font:inherit;font-size:.75rem;line-height:1.4;cursor:pointer}
+.typing-toggle:hover{border-color:var(--accent)}
+#stack.typing-paused .typing-cursor{animation-play-state:paused}
+.typing-toggle[hidden]{display:none}
+.stack-list{display:flex;flex-wrap:wrap;gap:.55rem .75rem;list-style:none;margin:1.1rem 0 0;padding:0}
+.stack-list li{padding:.25rem .6rem;border:1px solid var(--line);border-radius:4px;color:var(--fg);font:.85rem/1.5 var(--mono)}
+
 .term{background:var(--black);border:1px solid var(--line);border-radius:10px;overflow:hidden;font:.9rem/1.7 var(--mono)}
 .term-bar{background:var(--panel);padding:.45rem 1rem;color:var(--muted);font-size:.8rem;border-bottom:1px solid var(--line)}
 .term-body{padding:1rem 1.25rem}
@@ -78,7 +88,7 @@ h1{font:400 clamp(2.2rem,6vw,3.6rem)/1.1 var(--serif);margin:0 0 1rem;letter-spa
 .term dd{margin:0;overflow-wrap:anywhere}
 .cur{display:inline-block;width:.6em;height:1.1em;background:var(--fg);vertical-align:text-bottom;animation:blink 1.1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-@media(prefers-reduced-motion:reduce){.cur{animation:none}html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){.cur,.typing-cursor{animation:none}html{scroll-behavior:auto}}
 
 section{padding-block:2.5rem;border-top:1px solid var(--line)}
 h2{font:400 1.9rem/1.2 var(--serif);margin:0 0 1.25rem}
@@ -105,6 +115,7 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
     <nav aria-label="Main" data-i18n="nav_label" data-attr="aria-label">
       <ul>
         <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+        <li><a href="#stack" data-i18n="nav_stack">Stack</a></li>
         <li><a href="#design" data-i18n="nav_design">Design</a></li>
         <li><a href="#about" data-i18n="nav_about">About me</a></li>
         <li><a href="#cv" data-i18n="nav_cv">CV</a></li>
@@ -142,6 +153,14 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
     </div>
   </div>
 
+  <section id="stack" class="stack">
+    <h2 data-i18n="h_stack">Technologies</h2>
+    <p class="stack-intro"><span data-i18n="stack_intro">I work with</span> <strong id="typing-word" class="typing-word" aria-hidden="true">Figma</strong><span class="typing-cursor" aria-hidden="true"></span> <button id="typing-toggle" class="typing-toggle" type="button" data-i18n="typing_pause" hidden>Pause typing</button></p>
+    <ul class="stack-list" aria-label="Technologies I use" data-i18n="stack_label" data-attr="aria-label">
+      <li>Figma</li><li>Angular</li><li>React</li><li>Vite</li><li>CSS</li><li>HTML</li><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>Express</li><li>Node.js</li><li>SQL</li><li>Sequelize</li><li>EJS</li><li>Tailwind CSS</li><li>Bash</li>
+    </ul>
+  </section>
+
   <section id="projects">
     <h2 data-i18n="h_projects">Projects</h2>
     <div class="grid">
@@ -165,13 +184,12 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
   </section>
 
   <section id="design" class="shots">
-    <h2 data-i18n="h_design">Design work</h2>
+    <h2 data-i18n="h_design">Design works</h2>
     <div class="grid">
-      <figure><img src="img/Colores.webp" width="480" height="360" alt="Color palette" data-i18n="alt_colors" data-attr="alt" loading="lazy" decoding="async"></figure>
       <figure><img src="img/Iconos.webp" width="480" height="360" alt="Icon set" data-i18n="alt_icons" data-attr="alt" loading="lazy" decoding="async"></figure>
       <figure><img src="img/tipography.webp" width="480" height="360" alt="Typography" data-i18n="alt_type" data-attr="alt" loading="lazy" decoding="async"></figure>
       <figure><img src="img/mockup-gerente-regional-blue.webp" width="480" height="360" alt="Regional manager sales dashboard" data-i18n="alt_mobile" data-attr="alt" loading="lazy" decoding="async"></figure>
-      <figure><img src="img/Mensaje.webp" width="480" height="360" alt="Message screen design" data-i18n="alt_msg" data-attr="alt" loading="lazy" decoding="async"></figure>
+      <figure><img src="img/super-admin-flow-1.webp" width="480" height="360" alt="Message screen design" data-i18n="alt_msg" data-attr="alt" loading="lazy" decoding="async"></figure>
     </div>
   </section>
 
@@ -190,13 +208,16 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
   <section id="contact">
     <h2 data-i18n="h_contact">Contact</h2>
     <p><a href="https://www.linkedin.com/in/victoriadaluz/" target="_blank" rel="noopener">LinkedIn</a>
-      &nbsp;&nbsp;<a href="https://github.com/victoriadaluz" target="_blank" rel="noopener">GitHub</a></p>
+      &nbsp;&nbsp;<a href="https://github.com/victoriadaluz" target="_blank" rel="noopener">GitHub</a>&nbsp;&nbsp;<a href="https://www.behance.net/victoriadaluz" target="_blank" rel="noopener">BeHance</a>&nbsp;&nbsp;
+    <a href="mailto:victoria.daluz@gmail.com">Email</a></p>
+  
+     
   </section>
 </main>
 
 <script>
 const T={es:{
-skip:"Saltar al contenido",nav_projects:"Proyectos",nav_design:"Diseño",nav_about:"Sobre mí",nav_cv:"CV",nav_contact:"Contacto",
+skip:"Saltar al contenido",nav_projects:"Proyectos",nav_stack:"Tecnologías",nav_design:"Diseño",nav_about:"Sobre mí",nav_cv:"CV",nav_contact:"Contacto",
 alt_me:"Victoria Da Luz",h1:"¡Hola! Soy Victoria",
 lead:"Desarrolladora front end y diseñadora UX/UI con más de 4 años de experiencia, trabajando con Figma, React y Angular. Aprendiendo n8n.",
 term_label:"Sobre mí, en formato terminal",t_role:"Front end + UX/UI",t_cats:"3, y de diferentes colores. Preguntame lo que quieras",t_colors:"tierra, y por supuesto negro",
@@ -204,7 +225,7 @@ h_projects:"Proyectos",project_tivoli:"Tivoli Fest",p_tivoli:"Sitio web para el 
 project_uxcasestudy:"Caso de estudio UX",p_uxcasestudy:"Investigación y diseño UX para una plataforma de comercio electrónico con análisis de datos.",
 project_sustainability:"Sostenibilidad",p_sustainability:"Proyecto de diseño sobre sostenibilidad para un cliente externo.",
 project_federals:"Panel de Federals",p_federals:"Diseño de dashboard para un proyecto interno de Federals.",
-nav_label:"Navegación principal",h_contact:"Contacto",
+nav_label:"Navegación principal",h_stack:"Tecnologías",stack_intro:"Trabajo con",stack_label:"Tecnologías que uso",typing_pause:"Pausar animación",typing_resume:"Reanudar animación",h_contact:"Contacto",
 h_design:"Trabajos de diseño",alt_colors:"Paleta de colores",alt_icons:"Set de íconos",alt_type:"Tipografías",alt_mobile:"Panel de ventas para gerente regional",alt_msg:"Diseño de pantalla de mensajes",
 h_about:"Sobre mí",
 about1:"Diseño y desarrollo interfaces intuitivas, aplicaciones y páginas web estáticas. Disfruto crear experiencias digitales que sean tanto funcionales e inclusivas, como atractivas. Cuento con experiencia trabajando en equipos multidisciplinarios y de forma independiente (freelance). Trabajo principalmente con Figma para el diseño y con Angular, React o Vite para el front end.",
@@ -212,6 +233,9 @@ about2:"Fuera del trabajo uso Arch Linux, me apasiona la música, los RPG y coci
 h_cv:"Currículum",cv_text:"Disponible en español e inglés, en PDF.",cv_btn:"Abrir mi CV",}};
 const $=s=>document.querySelectorAll(s),btn=document.getElementById('lang');
 $('[data-i18n]').forEach(e=>e.dataset.en=e.dataset.attr?e.getAttribute(e.dataset.attr):e.innerHTML);
+const typingToggle=document.getElementById('typing-toggle');
+const typingLabels={en:{pause:'Pause typing',resume:'Resume typing'},es:{pause:'Pausar animación',resume:'Reanudar animación'}};
+let typingPaused=false;
 function setLang(l){
   document.documentElement.lang=l;
   document.title=l==='es'?'Victoria Da Luz | Desarrolladora Front-End y Diseñadora UX/UI':'Victoria Da Luz | Front-End Developer & UX/UI Designer';
@@ -226,6 +250,7 @@ function setLang(l){
     const v=l==='es'?(T.es[e.dataset.i18n]??e.dataset.en):e.dataset.en;
     e.dataset.attr?e.setAttribute(e.dataset.attr,v):e.innerHTML=v;
   });
+  if(typingToggle)typingToggle.textContent=typingLabels[l][typingPaused?'resume':'pause'];
   $('[data-cv]').forEach(a=>a.href='cv/Victoria_Da_Luz_CV_'+l.toUpperCase()+'.pdf');
   btn.textContent=l==='es'?'EN':'ES';btn.lang=l==='es'?'en':'es';
   btn.setAttribute('aria-label',l==='es'?'Switch to English':'Cambiar a español');
@@ -235,6 +260,39 @@ let saved;try{saved=localStorage.getItem('lang')}catch(e){}
 let cur=saved||((navigator.language||'').startsWith('es')?'es':'en');
 setLang(cur);
 btn.addEventListener('click',()=>{cur=cur==='es'?'en':'es';setLang(cur)});
+const typingWord=document.getElementById('typing-word');
+const technologies=['Figma','Angular','React','Vite','CSS','HTML','TypeScript','JavaScript','Python','Express','Node.js','SQL','Sequelize','EJS','Tailwind CSS','Bash'];
+if(typingWord&&typingToggle&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const stack=document.getElementById('stack');
+  let technologyIndex=0;
+  let characterIndex=technologies[0].length;
+  let deleting=true;
+  let nextTypingTimeout;
+  const typeNextCharacter=()=>{
+    const technology=technologies[technologyIndex];
+    characterIndex+=deleting?-1:1;
+    typingWord.textContent=technology.slice(0,characterIndex);
+    let delay=deleting?45:85;
+    if(!deleting&&characterIndex===technology.length){
+      deleting=true;
+      delay=1100;
+    }else if(deleting&&characterIndex===0){
+      deleting=false;
+      technologyIndex=(technologyIndex+1)%technologies.length;
+      delay=280;
+    }
+    nextTypingTimeout=window.setTimeout(typeNextCharacter,delay);
+  };
+  typingToggle.hidden=false;
+  typingToggle.addEventListener('click',()=>{
+    typingPaused=!typingPaused;
+    stack.classList.toggle('typing-paused',typingPaused);
+    if(typingPaused)window.clearTimeout(nextTypingTimeout);
+    else nextTypingTimeout=window.setTimeout(typeNextCharacter,200);
+    typingToggle.textContent=typingLabels[document.documentElement.lang][typingPaused?'resume':'pause'];
+  });
+  nextTypingTimeout=window.setTimeout(typeNextCharacter,1100);
+}
 </script>
 </body>
 </html>
