@@ -7,7 +7,7 @@
 <meta name="description" content="Front end developer and UX/UI designer based in Argentina. Portfolio, projects and CV.">
 <meta property="og:title" content="Victoria Da Luz — Front End & UX/UI">
 <meta property="og:description" content="Front end developer and UX/UI designer. Portfolio, projects and CV.">
-<meta property="og:image" content="https://victoriadaluz.github.io/victoriadaluz/img/cover.webp">
+<meta property="og:image" content="https://victoriadaluz.github.io/victoriadaluz/img/cover.jpg">
 <meta name="theme-color" content="#17110d">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐈‍⬛%3C/text%3E%3C/svg%3E">
 <style>
@@ -94,9 +94,9 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
   <div class="hero">
     <div>
       <div class="me">
-        <img src="img/profilepic.webp" width="96" height="96" alt="Victoria Da Luz" data-i18n="alt_me" data-attr="alt">
+        <img src="img/profilepic.jpeg" width="96" height="96" alt="Victoria Da Luz" data-i18n="alt_me" data-attr="alt">
       </div>
-      <h1 data-i18n="h1">Hi! I'm Victoria 👋</h1>
+      <h1 data-i18n="h1">Hi! I'm Victoria</h1>
       <p class="lead" data-i18n="lead">Front end developer and UX/UI designer with over 4 years of experience, working with Figma, React and Angular. Learning n8n.</p>
     </div>
     <div class="term" aria-label="About me, terminal style" data-i18n="term_label" data-attr="aria-label">
@@ -121,7 +121,7 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
     <h2 data-i18n="h_projects">Projects</h2>
     <div class="grid">
       <a class="proj" href="https://tivolifest.com.ar" target="_blank" rel="noopener">
-        <img src="img/cover.webp" width="640" height="400" alt="Tivoli Fest website" data-i18n="alt_tivoli" data-attr="alt" loading="lazy" decoding="async">
+        <img src="img/cover.jpg" width="640" height="400" alt="Tivoli Fest website" data-i18n="alt_tivoli" data-attr="alt" loading="lazy" decoding="async">
         <div><h3>Tivoli Fest</h3><p data-i18n="p_tivoli">Website for the event hall.</p></div>
       </a>
       <!-- Para sumar otro proyecto, copiá el bloque <a class="proj"> completo -->
@@ -131,11 +131,11 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
   <section id="design" class="shots">
     <h2 data-i18n="h_design">Design work</h2>
     <div class="grid">
-      <figure><img src="img/Colores.webp" width="480" height="360" alt="Color palette" data-i18n="alt_colors" data-attr="alt" loading="lazy" decoding="async"></figure>
-      <figure><img src="img/Iconos.webp" width="480" height="360" alt="Icon set" data-i18n="alt_icons" data-attr="alt" loading="lazy" decoding="async"></figure>
-      <figure><img src="img/tipography.webp" width="480" height="360" alt="Typography" data-i18n="alt_type" data-attr="alt" loading="lazy" decoding="async"></figure>
-      <figure><img src="img/Mobile.webp" width="480" height="360" alt="Mobile design" data-i18n="alt_mobile" data-attr="alt" loading="lazy" decoding="async"></figure>
-      <figure><img src="img/Mensaje.webp" width="480" height="360" alt="Message screen design" data-i18n="alt_msg" data-attr="alt" loading="lazy" decoding="async"></figure>
+      <figure><img src="img/Colores.jpg" width="480" height="360" alt="Color palette" data-i18n="alt_colors" data-attr="alt" loading="lazy" decoding="async"></figure>
+      <figure><img src="img/Iconos.jpg" width="480" height="360" alt="Icon set" data-i18n="alt_icons" data-attr="alt" loading="lazy" decoding="async"></figure>
+      <figure><img src="img/tipography.jpg" width="480" height="360" alt="Typography" data-i18n="alt_type" data-attr="alt" loading="lazy" decoding="async"></figure>
+      <figure><img src="img/Mobile.jpg" width="480" height="360" alt="Mobile design" data-i18n="alt_mobile" data-attr="alt" loading="lazy" decoding="async"></figure>
+      <figure><img src="img/Mensaje.jpg" width="480" height="360" alt="Message screen design" data-i18n="alt_msg" data-attr="alt" loading="lazy" decoding="async"></figure>
     </div>
   </section>
 
@@ -161,7 +161,7 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
 <script>
 const T={es:{
 skip:"Saltar al contenido",nav_projects:"Proyectos",nav_design:"Diseño",nav_about:"Sobre mí",nav_cv:"CV",nav_contact:"Contacto",
-alt_me:"Victoria Da Luz",h1:"¡Hola! Soy Victoria 👋",
+alt_me:"Victoria Da Luz",h1:"¡Hola! Soy Victoria",
 lead:"Desarrolladora front end y diseñadora UX/UI con más de 4 años de experiencia, trabajando con Figma, React y Angular. Apendiendo n8n.",
 term_label:"Sobre mí, en formato terminal",t_role:"Front end + UX/UI",t_cats:"3, y de diferentes colores. Preguntame lo que quieras",t_colors:"tierra, y por supuesto negro",
 h_projects:"Proyectos",alt_tivoli:"Sitio web de Tivoli Fest",p_tivoli:"Sitio web para el salón de eventos.",
@@ -174,7 +174,10 @@ const $=s=>document.querySelectorAll(s),btn=document.getElementById('lang');
 $('[data-i18n]').forEach(e=>e.dataset.en=e.dataset.attr?e.getAttribute(e.dataset.attr):e.innerHTML);
 function setLang(l){
   document.documentElement.lang=l;
-  $('[data-i18n]').forEach(e=>{const v=l==='es'?T.es[e.dataset.i18n]:e.dataset.en;e.dataset.attr?e.setAttribute(e.dataset.attr,v):e.innerHTML=v});
+  $('[data-i18n]').forEach(e=>{
+    const v=l==='es'?(T.es[e.dataset.i18n]??e.dataset.en):e.dataset.en;
+    e.dataset.attr?e.setAttribute(e.dataset.attr,v):e.innerHTML=v;
+  });
   $('[data-cv]').forEach(a=>a.href='cv/Victoria_Da_Luz_CV_'+l.toUpperCase()+'.pdf');
   btn.textContent=l==='es'?'EN':'ES';btn.lang=l==='es'?'en':'es';
   btn.setAttribute('aria-label',l==='es'?'Switch to English':'Cambiar a español');
