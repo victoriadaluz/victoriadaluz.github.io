@@ -3,13 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Victoria Da Luz — Front End &amp; UX/UI</title>
-<meta name="description" content="Front end developer and UX/UI designer based in Argentina. Portfolio, projects and CV.">
+<title>Victoria Da Luz | Front-End Developer &amp; UX/UI Designer</title>
+<meta name="description" content="Victoria Da Luz is a front-end developer and UX/UI designer based in Argentina. Explore selected web and interface design projects, experience, and résumé.">
+<link rel="canonical" href="https://victoriadaluz.github.io/victoriadaluz/">
 <meta property="og:title" content="Victoria Da Luz — Front End & UX/UI">
-<meta property="og:description" content="Front end developer and UX/UI designer. Portfolio, projects and CV.">
+<meta property="og:description" content="Front-end developer and UX/UI designer based in Argentina. Explore selected web and interface design projects, experience, and résumé.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://victoriadaluz.github.io/victoriadaluz/">
+<meta property="og:site_name" content="Victoria Da Luz">
 <meta property="og:image" content="https://victoriadaluz.github.io/victoriadaluz/img/cover.webp">
+<meta property="og:image:alt" content="Tivoli Fest website design by Victoria Da Luz">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Victoria Da Luz | Front-End Developer &amp; UX/UI Designer">
+<meta name="twitter:description" content="Front-end developer and UX/UI designer based in Argentina. Explore selected projects and experience.">
+<meta name="twitter:image" content="https://victoriadaluz.github.io/victoriadaluz/img/cover.webp">
+<meta name="twitter:image:alt" content="Tivoli Fest website design by Victoria Da Luz">
 <meta name="theme-color" content="#17110d">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐈‍⬛%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Victoria Da Luz",
+  "url": "https://victoriadaluz.github.io/victoriadaluz/",
+  "jobTitle": "Front-End Developer and UX/UI Designer",
+  "sameAs": [
+    "https://www.linkedin.com/in/victoriadaluz/",
+    "https://github.com/victoriadaluz"
+  ],
+  "knowsAbout": ["Front-end development", "UX/UI design", "Figma", "React", "Angular", "Vite"]
+}
+</script>
 <style>
 :root{
   --bg:#17110d; --panel:#221913; --line:#3a2b20; --black:#0d0907;
@@ -77,7 +102,7 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
 
 <header>
   <div class="wrap">
-    <nav aria-label="Main">
+    <nav aria-label="Main" data-i18n="nav_label" data-attr="aria-label">
       <ul>
         <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
         <li><a href="#design" data-i18n="nav_design">Design</a></li>
@@ -86,7 +111,7 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
         <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
       </ul>
     </nav>
-    <button id="lang" type="button" lang="es">ES</button>
+    <button id="lang" type="button" lang="es" aria-label="Switch to Spanish">ES</button>
   </div>
 </header>
 
@@ -99,7 +124,7 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
       <h1 data-i18n="h1">Hi! I'm Victoria</h1>
       <p class="lead" data-i18n="lead">Front end developer and UX/UI designer with over 4 years of experience, working with Figma, React and Angular. Learning n8n.</p>
     </div>
-    <div class="term" aria-label="About me, terminal style" data-i18n="term_label" data-attr="aria-label">
+    <div class="term" role="region" aria-label="About me, terminal style" data-i18n="term_label" data-attr="aria-label">
       <div class="term-bar">vicky@arch: ~</div>
       <div class="term-body">
         <p>$ <b>fastfetch</b></p>
@@ -121,10 +146,21 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
     <h2 data-i18n="h_projects">Projects</h2>
     <div class="grid">
       <a class="proj" href="https://tivolifest.com.ar" target="_blank" rel="noopener">
-        <img src="img/cover.webp" width="640" height="400" alt="Tivoli Fest website" data-i18n="alt_tivoli" data-attr="alt" loading="lazy" decoding="async">
-        <div><h3>Tivoli Fest</h3><p data-i18n="p_tivoli">Website for the event hall.</p></div>
+        <img src="img/cover.webp" width="640" height="400" alt="" loading="lazy" decoding="async">
+        <div><h3 data-i18n="project_tivoli">Tivoli Fest</h3><p data-i18n="p_tivoli">Website for the event hall.</p></div>
       </a>
-      <!-- Para sumar otro proyecto, copiá el bloque <a class="proj"> completo -->
+      <a class="proj" href="https://www.behance.net/gallery/214363907/UX-Case-Study" target="_blank" rel="noopener">
+        <img src="img/mockup-gerente-regional-blue.webp" width="640" height="400" alt="" loading="lazy" decoding="async">
+        <div><h3 data-i18n="project_uxcasestudy">UX Case Study</h3><p data-i18n="p_uxcasestudy">UX research and design for an ecommerce platform with analytics.</p></div>
+      </a>
+      <a class="proj" href="https://www.behance.net/gallery/221442905/Sostenibilidad" target="_blank" rel="noopener">
+        <img src="img/sustanaibility.webp" width="640" height="400" alt="" loading="lazy" decoding="async">
+        <div><h3 data-i18n="project_sustainability">Sustainability</h3><p data-i18n="p_sustainability">Sustainability design project for an external client.</p></div>
+      </a>
+      <a class="proj" href="https://www.behance.net/gallery/216043925/Internal-project-Federals" target="_blank" rel="noopener">
+        <img src="img/federals.webp" width="640" height="400" alt="" loading="lazy" decoding="async">
+        <div><h3 data-i18n="project_federals">Federals dashboard</h3><p data-i18n="p_federals">Dashboard design for an internal Federals project.</p></div>
+      </a>
     </div>
   </section>
 
@@ -134,14 +170,14 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
       <figure><img src="img/Colores.webp" width="480" height="360" alt="Color palette" data-i18n="alt_colors" data-attr="alt" loading="lazy" decoding="async"></figure>
       <figure><img src="img/Iconos.webp" width="480" height="360" alt="Icon set" data-i18n="alt_icons" data-attr="alt" loading="lazy" decoding="async"></figure>
       <figure><img src="img/tipography.webp" width="480" height="360" alt="Typography" data-i18n="alt_type" data-attr="alt" loading="lazy" decoding="async"></figure>
-      <figure><img src="img/Mobile.webp" width="480" height="360" alt="Mobile design" data-i18n="alt_mobile" data-attr="alt" loading="lazy" decoding="async"></figure>
+      <figure><img src="img/mockup-gerente-regional-blue.webp" width="480" height="360" alt="Regional manager sales dashboard" data-i18n="alt_mobile" data-attr="alt" loading="lazy" decoding="async"></figure>
       <figure><img src="img/Mensaje.webp" width="480" height="360" alt="Message screen design" data-i18n="alt_msg" data-attr="alt" loading="lazy" decoding="async"></figure>
     </div>
   </section>
 
   <section id="about" class="about">
     <h2 data-i18n="h_about">About me</h2>
-    <p data-i18n="about1">I design and build intuitive interfaces, applications and static web pages, so I care about how something looks and how it behaves once it's in someone's hands. I also have experience both with multidisciplinary teams and as a freelancer. Been studying I work with Figma for designing and Angular, React or Vite for the front end.</p>
+    <p data-i18n="about1">I design and build intuitive interfaces, applications and static web pages, so I care about how something looks and how it behaves once it's in someone's hands. I also have experience both with multidisciplinary teams and as a freelancer. I use Figma for design and Angular, React, or Vite for front-end development.</p>
     <p data-i18n="about2">Outside work I'm on Arch Linux, I'm very passionate about music, RPGs and cooking.</p>
   </section>
 
@@ -162,18 +198,30 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
 const T={es:{
 skip:"Saltar al contenido",nav_projects:"Proyectos",nav_design:"Diseño",nav_about:"Sobre mí",nav_cv:"CV",nav_contact:"Contacto",
 alt_me:"Victoria Da Luz",h1:"¡Hola! Soy Victoria",
-lead:"Desarrolladora front end y diseñadora UX/UI con más de 4 años de experiencia, trabajando con Figma, React y Angular. Apendiendo n8n.",
+lead:"Desarrolladora front end y diseñadora UX/UI con más de 4 años de experiencia, trabajando con Figma, React y Angular. Aprendiendo n8n.",
 term_label:"Sobre mí, en formato terminal",t_role:"Front end + UX/UI",t_cats:"3, y de diferentes colores. Preguntame lo que quieras",t_colors:"tierra, y por supuesto negro",
-h_projects:"Proyectos",alt_tivoli:"Sitio web de Tivoli Fest",p_tivoli:"Sitio web para el salón de eventos.",
-h_design:"Trabajos de diseño",alt_colors:"Paleta de colores",alt_icons:"Set de íconos",alt_type:"Tipografías",alt_mobile:"Diseño mobile",alt_msg:"Diseño de pantalla de mensajes",
-h_about:"Sobre mi",
-about1:"Diseño y desarrollo interfaces intuitivas, aplicaciones y páginas web estáticas. Disfruto crear experiencias digitales que sean tanto funcionales e inclusivas, como atractivas. Cuento con experiencia trabajando en equipos multidisciplinarios y de forma independiente (freelance). TRabajo principalmente con Figma para el diseño y con Angular, React o Vite para el front end.",
+h_projects:"Proyectos",project_tivoli:"Tivoli Fest",p_tivoli:"Sitio web para el salón de eventos.",
+project_uxcasestudy:"Caso de estudio UX",p_uxcasestudy:"Investigación y diseño UX para una plataforma de comercio electrónico con análisis de datos.",
+project_sustainability:"Sostenibilidad",p_sustainability:"Proyecto de diseño sobre sostenibilidad para un cliente externo.",
+project_federals:"Panel de Federals",p_federals:"Diseño de dashboard para un proyecto interno de Federals.",
+nav_label:"Navegación principal",h_contact:"Contacto",
+h_design:"Trabajos de diseño",alt_colors:"Paleta de colores",alt_icons:"Set de íconos",alt_type:"Tipografías",alt_mobile:"Panel de ventas para gerente regional",alt_msg:"Diseño de pantalla de mensajes",
+h_about:"Sobre mí",
+about1:"Diseño y desarrollo interfaces intuitivas, aplicaciones y páginas web estáticas. Disfruto crear experiencias digitales que sean tanto funcionales e inclusivas, como atractivas. Cuento con experiencia trabajando en equipos multidisciplinarios y de forma independiente (freelance). Trabajo principalmente con Figma para el diseño y con Angular, React o Vite para el front end.",
 about2:"Fuera del trabajo uso Arch Linux, me apasiona la música, los RPG y cocinar.",
 h_cv:"Currículum",cv_text:"Disponible en español e inglés, en PDF.",cv_btn:"Abrir mi CV",}};
 const $=s=>document.querySelectorAll(s),btn=document.getElementById('lang');
 $('[data-i18n]').forEach(e=>e.dataset.en=e.dataset.attr?e.getAttribute(e.dataset.attr):e.innerHTML);
 function setLang(l){
   document.documentElement.lang=l;
+  document.title=l==='es'?'Victoria Da Luz | Desarrolladora Front-End y Diseñadora UX/UI':'Victoria Da Luz | Front-End Developer & UX/UI Designer';
+  const description=l==='es'?'Victoria Da Luz es desarrolladora front end y diseñadora UX/UI en Argentina. Explora proyectos seleccionados de diseño web e interfaces, experiencia y currículum.':'Victoria Da Luz is a front-end developer and UX/UI designer based in Argentina. Explore selected web and interface design projects, experience, and résumé.';
+  document.querySelector('meta[name="description"]').content=description;
+  document.querySelector('meta[property="og:title"]').content=document.title;
+  document.querySelector('meta[property="og:description"]').content=description;
+  document.querySelector('meta[property="og:locale"]').content=l==='es'?'es_AR':'en_US';
+  document.querySelector('meta[name="twitter:title"]').content=document.title;
+  document.querySelector('meta[name="twitter:description"]').content=description;
   $('[data-i18n]').forEach(e=>{
     const v=l==='es'?(T.es[e.dataset.i18n]??e.dataset.en):e.dataset.en;
     e.dataset.attr?e.setAttribute(e.dataset.attr,v):e.innerHTML=v;
