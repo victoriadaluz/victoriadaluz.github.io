@@ -52,7 +52,7 @@ a:hover{color:var(--fg)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 .skip{position:absolute;left:1rem;top:-4rem;background:var(--accent);color:var(--black);padding:.5rem 1rem;z-index:10}
 .skip:focus{top:1rem}
-.wrap{max-width:60rem;margin-inline:auto;padding-inline:1.25rem}
+.wrap{width:100%;max-width:none;margin-inline:auto;padding-inline:clamp(1.25rem,5vw,6rem)}
 
 header .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1.5rem;padding-block:1.25rem}
 nav ul{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem;margin:0;padding:0;list-style:none}
@@ -62,9 +62,14 @@ nav a:hover{color:var(--fg);text-decoration:underline}
 #lang:hover{border-color:var(--accent)}
 
 .hero{display:grid;gap:2.5rem;padding-block:3rem 4rem;align-items:center}
-@media(min-width:52rem){.hero{grid-template-columns:1fr 1.05fr}}
+@media(min-width:52rem){
+  .hero{
+    grid-template-columns:minmax(0,1fr) minmax(24rem,1.05fr);
+  }
+}
 .me{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem}
-.me img{width:96px;height:96px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.me img{width:clamp(5rem,22vw,8rem);aspect-ratio:1;height:auto;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+@media(min-width:52rem){.me img{width:clamp(6rem,12vw,18rem)}}
 h1{font:400 clamp(2.2rem,6vw,3.6rem)/1.1 var(--serif);margin:0 0 1rem;letter-spacing:-.01em}
 .lead{color:var(--muted);max-width:44ch;margin:0}
 
@@ -76,7 +81,9 @@ h1{font:400 clamp(2.2rem,6vw,3.6rem)/1.1 var(--serif);margin:0 0 1rem;letter-spa
 #stack.typing-paused .typing-cursor{animation-play-state:paused}
 .typing-toggle[hidden]{display:none}
 .stack-list{display:flex;flex-wrap:wrap;gap:.55rem .75rem;list-style:none;margin:1.1rem 0 0;padding:0}
-.stack-list li{padding:.25rem .6rem;border:1px solid var(--line);border-radius:4px;color:var(--fg);font:.85rem/1.5 var(--mono)}
+.stack-list li{position:relative;padding:.25rem .6rem;border:1px solid var(--line);border-radius:4px;color:var(--fg);font:.85rem/1.5 var(--mono);transition:border-color .2s ease,color .2s ease,background-color .2s ease}
+.stack-list li.is-active{color:var(--accent);border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.stack-list li.is-active::after{content:"";position:absolute;right:.5rem;bottom:-.35rem;left:.5rem;height:2px;border-radius:999px;background:var(--accent);box-shadow:0 0 .5rem var(--accent)}
 
 .term{background:var(--black);border:1px solid var(--line);border-radius:10px;overflow:hidden;font:.9rem/1.7 var(--mono)}
 .term-bar{background:var(--panel);padding:.45rem 1rem;color:var(--muted);font-size:.8rem;border-bottom:1px solid var(--line)}
@@ -88,7 +95,7 @@ h1{font:400 clamp(2.2rem,6vw,3.6rem)/1.1 var(--serif);margin:0 0 1rem;letter-spa
 .term dd{margin:0;overflow-wrap:anywhere}
 .cur{display:inline-block;width:.6em;height:1.1em;background:var(--fg);vertical-align:text-bottom;animation:blink 1.1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-@media(prefers-reduced-motion:reduce){.cur,.typing-cursor{animation:none}html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){.cur,.typing-cursor{animation:none}.stack-list li,.shots img{transition:none}html{scroll-behavior:auto}}
 
 section{padding-block:2.5rem;border-top:1px solid var(--line)}
 h2{font:400 1.9rem/1.2 var(--serif);margin:0 0 1.25rem}
@@ -99,8 +106,16 @@ h3{font:600 1.15rem/1.3 var(--sans);margin:0 0 .25rem}
 .proj img{width:100%;aspect-ratio:16/10;object-fit:cover}
 .proj div{padding:1rem 1.1rem 1.2rem}
 .proj p{margin:0;color:var(--muted);font-size:.95rem}
-.shots figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:.5rem}
-.shots img{width:100%;aspect-ratio:4/3;object-fit:contain}
+.shots figure{margin:0;overflow:hidden;background:var(--panel);border:1px solid var(--line);border-radius:8px}
+.shot{display:block;width:100%;padding:.5rem;border:0;background:transparent;cursor:zoom-in}
+.shots img{width:100%;aspect-ratio:4/3;object-fit:contain;transition:transform .3s ease}
+.shot:hover img,.shot:focus-visible img{transform:scale(1.035)}
+.image-dialog{width:min(92vw,75rem);max-width:none;max-height:90vh;padding:.75rem;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--fg)}
+.image-dialog::backdrop{background:rgb(0 0 0 / .78)}
+.image-dialog img{max-width:100%;max-height:calc(90vh - 4rem);margin-inline:auto;object-fit:contain}
+.image-dialog form{display:flex;justify-content:flex-end;margin-bottom:.5rem}
+.image-dialog button{padding:.3rem .65rem;border:1px solid var(--line);border-radius:4px;background:transparent;color:var(--fg);font:inherit;cursor:pointer}
+.image-dialog button:hover{border-color:var(--accent);color:var(--accent)}
 .about p{max-width:62ch;margin:0 0 1rem}
 .btn{display:inline-block;background:var(--accent);color:var(--black);font-weight:600;text-decoration:none;padding:.65rem 1.25rem;border-radius:6px}
 .btn:hover{background:var(--fg);color:var(--black)}
@@ -186,10 +201,10 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
   <section id="design" class="shots">
     <h2 data-i18n="h_design">Design works</h2>
     <div class="grid">
-      <figure><img src="img/Iconos.webp" width="480" height="360" alt="Icon set" data-i18n="alt_icons" data-attr="alt" loading="lazy" decoding="async"></figure>
-      <figure><img src="img/tipography.webp" width="480" height="360" alt="Typography" data-i18n="alt_type" data-attr="alt" loading="lazy" decoding="async"></figure>
-      <figure><img src="img/mockup-gerente-regional-blue.webp" width="480" height="360" alt="Regional manager sales dashboard" data-i18n="alt_mobile" data-attr="alt" loading="lazy" decoding="async"></figure>
-      <figure><img src="img/super-admin-flow-1.webp" width="480" height="360" alt="Message screen design" data-i18n="alt_msg" data-attr="alt" loading="lazy" decoding="async"></figure>
+      <figure><button class="shot" type="button" aria-haspopup="dialog" aria-label="Open image" data-i18n="open_image" data-attr="aria-label"><img src="img/Iconos.webp" width="480" height="360" alt="Icon set" data-i18n="alt_icons" data-attr="alt" loading="lazy" decoding="async"></button></figure>
+      <figure><button class="shot" type="button" aria-haspopup="dialog" aria-label="Open image" data-i18n="open_image" data-attr="aria-label"><img src="img/tipography.webp" width="480" height="360" alt="Typography" data-i18n="alt_type" data-attr="alt" loading="lazy" decoding="async"></button></figure>
+      <figure><button class="shot" type="button" aria-haspopup="dialog" aria-label="Open image" data-i18n="open_image" data-attr="aria-label"><img src="img/mockup-gerente-regional-blue.webp" width="480" height="360" alt="Regional manager sales dashboard" data-i18n="alt_mobile" data-attr="alt" loading="lazy" decoding="async"></button></figure>
+      <figure><button class="shot" type="button" aria-haspopup="dialog" aria-label="Open image" data-i18n="open_image" data-attr="aria-label"><img src="img/super-admin-flow-1.webp" width="480" height="360" alt="Message screen design" data-i18n="alt_msg" data-attr="alt" loading="lazy" decoding="async"></button></figure>
     </div>
   </section>
 
@@ -200,7 +215,7 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
   </section>
 
   <section id="cv">
-    <h2 data-i18n="h_cv">Résumé</h2>
+    <h2 data-i18n="h_cv">CV</h2>
     <p data-i18n="cv_text">Available in English and Spanish, as PDF.</p>
     <a class="btn" data-cv href="cv/Victoria_Da_Luz_CV_EN.pdf" target="_blank" rel="noopener" data-i18n="cv_btn">Open my CV</a>
   </section>
@@ -209,11 +224,18 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
     <h2 data-i18n="h_contact">Contact</h2>
     <p><a href="https://www.linkedin.com/in/victoriadaluz/" target="_blank" rel="noopener">LinkedIn</a>
       &nbsp;&nbsp;<a href="https://github.com/victoriadaluz" target="_blank" rel="noopener">GitHub</a>&nbsp;&nbsp;<a href="https://www.behance.net/victoriadaluz" target="_blank" rel="noopener">BeHance</a>&nbsp;&nbsp;
-    <a href="mailto:victoria.daluz@gmail.com">Email</a></p>
+    <a href="mailto:victoria.daluz@gmail.com">Email</a>&nbsp;&nbsp;&nbsp;<a href="https://wa.me/5491125397676" target="_blank" rel="noopener">WhatsApp</a>
+  </p>
   
      
   </section>
 </main>
+
+<dialog id="image-dialog" class="image-dialog" aria-labelledby="image-dialog-title">
+  <form method="dialog"><button type="submit" aria-label="Close">×</button></form>
+  <img id="image-dialog-content" src="" alt="">
+  <p id="image-dialog-title" hidden></p>
+</dialog>
 
 <script>
 const T={es:{
@@ -225,7 +247,7 @@ h_projects:"Proyectos",project_tivoli:"Tivoli Fest",p_tivoli:"Sitio web para el 
 project_uxcasestudy:"Caso de estudio UX",p_uxcasestudy:"Investigación y diseño UX para una plataforma de comercio electrónico con análisis de datos.",
 project_sustainability:"Sostenibilidad",p_sustainability:"Proyecto de diseño sobre sostenibilidad para un cliente externo.",
 project_federals:"Panel de Federals",p_federals:"Diseño de dashboard para un proyecto interno de Federals.",
-nav_label:"Navegación principal",h_stack:"Tecnologías",stack_intro:"Trabajo con",stack_label:"Tecnologías que uso",typing_pause:"Pausar animación",typing_resume:"Reanudar animación",h_contact:"Contacto",
+nav_label:"Navegación principal",h_stack:"Tecnologías",stack_intro:"Trabajo con",stack_label:"Tecnologías que uso",typing_pause:"Pausar animación",typing_resume:"Reanudar animación",open_image:"Ampliar imagen",h_contact:"Contacto",
 h_design:"Trabajos de diseño",alt_colors:"Paleta de colores",alt_icons:"Set de íconos",alt_type:"Tipografías",alt_mobile:"Panel de ventas para gerente regional",alt_msg:"Diseño de pantalla de mensajes",
 h_about:"Sobre mí",
 about1:"Diseño y desarrollo interfaces intuitivas, aplicaciones y páginas web estáticas. Disfruto crear experiencias digitales que sean tanto funcionales e inclusivas, como atractivas. Cuento con experiencia trabajando en equipos multidisciplinarios y de forma independiente (freelance). Trabajo principalmente con Figma para el diseño y con Angular, React o Vite para el front end.",
@@ -264,10 +286,12 @@ const typingWord=document.getElementById('typing-word');
 const technologies=['Figma','Angular','React','Vite','CSS','HTML','TypeScript','JavaScript','Python','Express','Node.js','SQL','Sequelize','EJS','Tailwind CSS','Bash'];
 if(typingWord&&typingToggle&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
   const stack=document.getElementById('stack');
+  const technologyChips=[...stack.querySelectorAll('.stack-list li')];
   let technologyIndex=0;
   let characterIndex=technologies[0].length;
   let deleting=true;
   let nextTypingTimeout;
+  const highlightTechnology=name=>technologyChips.forEach(chip=>chip.classList.toggle('is-active',chip.textContent.trim()===name));
   const typeNextCharacter=()=>{
     const technology=technologies[technologyIndex];
     characterIndex+=deleting?-1:1;
@@ -279,10 +303,12 @@ if(typingWord&&typingToggle&&!window.matchMedia('(prefers-reduced-motion: reduce
     }else if(deleting&&characterIndex===0){
       deleting=false;
       technologyIndex=(technologyIndex+1)%technologies.length;
+      highlightTechnology(technologies[technologyIndex]);
       delay=280;
     }
     nextTypingTimeout=window.setTimeout(typeNextCharacter,delay);
   };
+  highlightTechnology(technologies[technologyIndex]);
   typingToggle.hidden=false;
   typingToggle.addEventListener('click',()=>{
     typingPaused=!typingPaused;
@@ -292,6 +318,23 @@ if(typingWord&&typingToggle&&!window.matchMedia('(prefers-reduced-motion: reduce
     typingToggle.textContent=typingLabels[document.documentElement.lang][typingPaused?'resume':'pause'];
   });
   nextTypingTimeout=window.setTimeout(typeNextCharacter,1100);
+}
+
+const imageDialog=document.getElementById('image-dialog');
+const dialogImage=document.getElementById('image-dialog-content');
+const dialogTitle=document.getElementById('image-dialog-title');
+if(imageDialog&&dialogImage&&dialogTitle){
+  document.querySelectorAll('.shot').forEach(shot=>shot.addEventListener('click',()=>{
+    const image=shot.querySelector('img');
+    dialogImage.src=image.currentSrc||image.src;
+    dialogImage.alt=image.alt;
+    dialogTitle.textContent=image.alt;
+    imageDialog.showModal();
+  }));
+  imageDialog.addEventListener('click',event=>{
+    if(event.target===imageDialog)imageDialog.close();
+  });
+  imageDialog.addEventListener('close',()=>{dialogImage.src=''});
 }
 </script>
 </body>
